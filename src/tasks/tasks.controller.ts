@@ -18,20 +18,10 @@ import { CreateTaskDto } from './dto/create-task.dto';
 import { FilterTaskDto } from './dto/get-task-filter.dto';
 import { TaskStatusValidationPipe } from './pipes/task-status.pipe';
 import { Task } from './task.entity';
-import { DeleteResult } from 'typeorm';
 
 @Controller('tasks')
 export class TasksController {
   constructor(private tasksService: TasksService) {}
-
-  // @Get()
-  // getTasks(@Query(ValidationPipe) filterTaskDto: FilterTaskDto): Task[] {
-  //     if (Object.keys(filterTaskDto).length) {
-  //         return this.tasksService.getFilteredTasks(filterTaskDto);
-  //     }else {
-  //         return this.tasksService.getAllTasks()
-  //     }
-  // }
   @Get()
   getTasks(@Query(ValidationPipe) filterTaskDto: FilterTaskDto) {
     return this.tasksService.getTasks(filterTaskDto);

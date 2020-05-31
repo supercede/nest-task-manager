@@ -9,8 +9,6 @@ export class TaskStatusValidationPipe implements PipeTransform {
       throw new BadRequestException(`Invalid value ${value}`);
     }
 
-    console.log(value);
-
     return value;
   }
 
